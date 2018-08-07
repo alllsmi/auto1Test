@@ -29,7 +29,7 @@ public class SearchPage extends PageObject {
         click(By.xpath(registerDateXpath));
         log.info("Select year: " + year);
         selectDropDownByText(By.xpath(yearDropDownXpath), year);
-        waitForElementVisibility(By.xpath(activeFilterXpath));
+        waitForElementClickable(By.xpath(activeFilterXpath));
     }
 
     public void selectSortType(String sortType) {

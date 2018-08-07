@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,13 +18,13 @@ public class PageObject {
     }
 
     protected void click(By by){
-        waitForElementVisibility(by);
+        waitForElementClickable(by);
         driver.findElement(by).click();
     }
 
-    protected void waitForElementVisibility(By by){
+    protected void waitForElementClickable(By by){
         new WebDriverWait(driver, 10, 50)
-                .until(ExpectedConditions.visibilityOfElementLocated(by));
+                .until(ExpectedConditions.elementToBeClickable(by));
     }
 
     protected void selectDropDownByValue(By by, String text){
