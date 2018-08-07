@@ -18,13 +18,13 @@ public class PageObject {
     }
 
     protected void click(By by){
-        waitForElementClickable(by);
+        waitForElement(by);
         driver.findElement(by).click();
     }
 
-    protected void waitForElementClickable(By by){
+    protected void waitForElement(By by){
         new WebDriverWait(driver, 10, 50)
-                .until(ExpectedConditions.elementToBeClickable(by));
+                .until(ExpectedConditions.numberOfElementsToBe(by, 1));
     }
 
     protected void selectDropDownByValue(By by, String text){
